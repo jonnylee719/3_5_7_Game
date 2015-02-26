@@ -19,6 +19,7 @@ public class Game3_5_7 {
      */
     public static void main(String[] args) {
     
+        // start on version 0 of assuring correct input from players
         
         int starNum, star1, star2, star3;
         star1 = 3;
