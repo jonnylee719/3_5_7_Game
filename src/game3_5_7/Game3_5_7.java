@@ -6,7 +6,7 @@
 package game3_5_7;
 
 import java.util.Scanner;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -20,38 +20,64 @@ public class Game3_5_7 {
     public static void main(String[] args) {
     
         
-        int row1, numStar;
-        row1 = 5;
+        int starNum, star1, star2, star3;
+        star1 = 3;
+        star2 = 5;
+        star3 = 7;
+        
+        int rowNum, row1, row2, row3;
+        rowNum = 0;
+        row1 = 1;
+        row2 = 2;
+        row3 = 3;
         int playerCounter = 1, roundNum = 1;
         
         do {
-        
+            System.out.print( "\n" + "Round " + roundNum + "\n" +  // getting input from player
+                    "Player " + playerCounter + ", please type rowNum and no. of * : ");
+            Scanner scan = new Scanner (System.in);
+            rowNum = scan.nextInt();
+            starNum = scan.nextInt();           
             
-            for (int i = 1 ; i <= row1 ; i++) {
-                System.out.print ("*");
+            if (rowNum == row1){
+                star1 -= starNum;
+            } 
+            if (rowNum == row2){
+                star2 -= starNum;
+            }
+            if (rowNum == row3){
+                star3 -= starNum;
             }
             
-            System.out.print("\n" );
+                            
+            for (int k = 0; k< star1; k++){ // for printing first row
+                System.out.print ("*");
+            }
+            System.out.println();
             
+            for (int k = 0; k< star2; k++){ // for printing second row
+                System.out.print ("*");
+            }
+            System.out.println();    
             
-            System.out.print( "\n" + "Round " + roundNum + "\n" +
-                    "Player " + playerCounter + ", please choose no. of * : ");
-            Scanner scan = new Scanner (System.in);
-            numStar = scan.nextInt();
-        
-            row1 -= numStar;
+            for (int k = 0; k< star3; k++){ // printing third row
+                System.out.print ("*");
+            }
+            System.out.println();
+            
             playerCounter += 1;
             
         
             
-                if (playerCounter == 3) {
-                    roundNum++;
-                    playerCounter -= 2;
-                }
+            if (playerCounter == 3) {
+                roundNum++;
+                playerCounter -= 2;
+                System.out.println ("--------------------------------------------");
+            }
                 
-            System.out.println ("--------------------------------------------");
+            
         }
-        while (row1 > 1);
+        while (star1 + star2 + star3 > 1);
         
         if (playerCounter == 1)
         System.out.print( "Too bad Player 1, you have lost!");
